@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jhy?useSSL=false
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+
+mybatis:
+  type-handlers-package: com.jhy.section2.dao
+  mapper-locations: classpath:mapper/*.xml
+

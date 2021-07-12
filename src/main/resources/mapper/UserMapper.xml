@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jhy.section2.dao.UserDao">
+    <insert id="addUser">
+        insert into "user" (name, password, score) values (#{name}, #{password}, #{score});
+    </insert>
+    <update id="updateUser">
+        update "user" set name = #{name}, password = #{password}, score = #{score} where id = #{id};
+    </update>
+    <delete id="deleteUser">
+        delete from "user" where id = #{id};
+    </delete>
+
+    <select id="getUsers" resultType="com.jhy.section2.pojo.User">
+        select * from "user";
+    </select>
+
+    <select id="User" resultType="com.jhy.section2.pojo.User">
+        select * from "user" where id = #{id};
+    </select>
+
+</mapper>
