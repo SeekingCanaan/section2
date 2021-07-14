@@ -119,10 +119,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String deleteAll() {
-        // userDao.deleteUser(user) 方法会返回删除数据的数目
+        // userDao.deleteAll() 如果返回0，则表示删除成功了
         int nums = userDao.deleteAll();
 
-        // 如果 num > 0，则表示该数据删除成功，num 为 0，则表示删除数据失败
+        // 如果 num == 0，则表示该数据删除成功，否则视为删除失败
         String msg = nums == 0 ? "删除全部用户成功" : "删除失败";
 
         // 定义一个map，来保存要返回的数据
