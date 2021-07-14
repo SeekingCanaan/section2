@@ -7,17 +7,20 @@ import org.springframework.stereotype.Service;
 public interface UserService {
 
     // 获取所有用户
-    public String getAllUsers();
+    String getAllUsers();
 
     // 根据id获取用户
-    public String getUserById(Integer id);
+    String getUserById(Integer id);
 
     // 新增用户
-    public String addUser(User user);
+    String addUser(User user);
 
     // 修改用户
-    public String updateUser(User user);
+    String updateUser(User user);
 
-    // 删除用户
-    public String deleteUser(Integer id);
+    // 根据id删除用户
+    String deleteUserById(Integer id);
+
+    // 删除所有用户
+    String deleteAll();
 }

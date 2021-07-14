@@ -29,7 +29,7 @@ public class UserController {
     }
 
     // 更新用户信息
-    @PatchMapping("/user")
+    @PutMapping("/user")
     public String updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
@@ -37,6 +37,12 @@ public class UserController {
     // 删除指定id用户信息
     @DeleteMapping("/user/{id}")
     public String deleteUser(@PathVariable Integer id) {
-        return userService.deleteUser(id);
+        return userService.deleteUserById(id);
+    }
+
+    // 删除全部用户信息
+    @DeleteMapping("/user")
+    public String deleteAll() {
+        return userService.deleteAll();
     }
 }

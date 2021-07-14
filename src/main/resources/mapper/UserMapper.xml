@@ -13,6 +13,9 @@
     <delete id="deleteUser">
         delete from "user" where id = #{id};
     </delete>
+    <delete id="deleteAll">
+        truncate table "user" restart identity;
+    </delete>
 
     <select id="getUsers" resultType="com.jhy.section2.pojo.User">
         select * from "user";

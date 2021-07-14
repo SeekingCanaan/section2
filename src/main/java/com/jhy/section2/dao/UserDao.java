@@ -20,6 +20,9 @@ public interface UserDao {
     // 修改用户信息
     int updateUser(User user);
 
-    // 删除用户信息
+    // 根据id删除用户信息
     int deleteUser(@Param("id") Integer id);
+
+    // 删除所有用户数据
+    int deleteAll();
 }

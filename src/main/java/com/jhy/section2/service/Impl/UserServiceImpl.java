@@ -99,13 +99,31 @@ public class UserServiceImpl implements UserService {
 
     // 实现删除用户的接口
     @Override
-    public String deleteUser(Integer id) {
+    public String deleteUserById(Integer id) {
 
         // userDao.deleteUser(user) 方法会返回删除数据的数目
         int nums = userDao.deleteUser(id);
 
         // 如果 num > 0，则表示该数据删除成功，num 为 0，则表示删除数据失败
         String msg = nums > 0 ? "删除成功" : "删除失败";
+
+        // 定义一个map，来保存要返回的数据
+        Map<String, Object> map = new HashMap<>();
+
+        // 将 msg 的内容放到map中
+        map.put("msg", msg);
+
+        // 调用fastjson的toJSONString()，将map中保存的键值对转换成json字符串
+        return JSON.toJSONString(map);
+    }
+
+    @Override
+    public String deleteAll() {
+        // userDao.deleteUser(user) 方法会返回删除数据的数目
+        int nums = userDao.deleteAll();
+
+        // 如果 num > 0，则表示该数据删除成功，num 为 0，则表示删除数据失败
+        String msg = nums == 0 ? "删除全部用户成功" : "删除失败";
 
         // 定义一个map，来保存要返回的数据
         Map<String, Object> map = new HashMap<>();
