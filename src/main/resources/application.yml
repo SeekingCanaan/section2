@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://0.0.0.0:5432/my_postgres?useSSL=false
+    url: jdbc:postgresql://0.0.0.0:9001/postgres?useSSL=false
     driver-class-name: org.postgresql.Driver
-    username: my_postgres
-    password: 111111
+    username: root
+    password: root
 
 mybatis:
   type-handlers-package: com.jhy.section2.dao
