@@ -44,7 +44,7 @@ public class PersonServiceImpl implements PersonService {
             person = personDao.getPersonById(id);
         } catch (NullPointerException e) {
             // 如果传入 id 不存在，查询不到人员信息，则打印下面的语句
-            System.out.println("查询失败，用户id为空");
+            System.out.println("查询失败，人员id为空");
         }
 
         // 定义一个map，来保存要返回的数据
@@ -124,7 +124,7 @@ public class PersonServiceImpl implements PersonService {
         int nums = personDao.deleteAll();
 
         // 如果 num == 0，则表示该数据删除成功，否则视为删除失败
-        String msg = nums == 0 ? "删除全部用户成功" : "删除失败";
+        String msg = nums == 0 ? "删除全部人员成功" : "删除失败";
 
         // 定义一个map，来保存要返回的数据
         Map<String, Object> map = new HashMap<>();
