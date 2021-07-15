@@ -1,9 +1,9 @@
 package com.jhy.section2.service.Impl;
 
 import com.alibaba.fastjson.JSON;
-import com.jhy.section2.dao.UserDao;
-import com.jhy.section2.pojo.User;
-import com.jhy.section2.service.UserService;
+import com.jhy.section2.dao.PersonDao;
+import com.jhy.section2.pojo.Person;
+import com.jhy.section2.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,57 +12,57 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class PersonServiceImpl implements PersonService {
 
     @Autowired
-    private UserDao userDao;
+    private PersonDao personDao;
 
-    // 实现获取所有用户的接口
+    // 实现获取所有人员的接口
     @Override
-    public String getAllUsers() {
+    public String getAllPerson() {
 
-        // 调用userDao.getUsers()，将获取到的所有用户信息放在列表 users 中
-        List<User> users = userDao.getUsers();
+        // 调用personDao.getAllPerson()，将获取到的所有用户信息放在列表 person 中
+        List<Person> person = personDao.getAllPerson();
 
         // 定义一个map，来保存要返回的数据
         Map<String, Object> map = new HashMap<>();
 
-        // 将所有用户信息 users 放到map中
-        map.put("data", users);
+        // 将所有人员信息 person 放到map中
+        map.put("data", person);
 
-        // 调用fastjson的toJSONString()，将map中保存的键值对转换成json字符串
+        // 调用 fastjson 的 toJSONString()，将 map 中保存的键值对转换成 json 字符串
         return JSON.toJSONString(map);
     }
 
-    // 实现获取根据id获取用户的接口
+    // 实现获取根据id获取人员的接口
     @Override
-    public String getUserById(Integer id) {
+    public String getPersonById(Integer id) {
         System.out.println(id);
-        User user = null;
+        Person person = null;
         try {
-            // 将参数id传入userDao.User(id)方法，把获取到的用户信息保存到 user 中
-            user = userDao.User(id);
+            // 将参数id传入 personDao.getPersonById(id) 方法，把获取到的用户信息保存到 person 中
+            person = personDao.getPersonById(id);
         } catch (NullPointerException e) {
-            // 如果传入 id 不存在，查询不到用户，则打印下面的语句
+            // 如果传入 id 不存在，查询不到人员信息，则打印下面的语句
             System.out.println("查询失败，用户id为空");
         }
 
         // 定义一个map，来保存要返回的数据
         Map<String, Object> map = new HashMap<>();
 
-        // 将查询到的用户信息 user 放到map中
-        map.put("data", user);
+        // 将查询到的人员信息 person 放到 map 中
+        map.put("data", person);
 
-        // 调用fastjson的toJSONString()，将map中保存的键值对转换成json字符串
+        // 调用 fastjson 的 toJSONString()，将 map 中保存的键值对转换成json字符串
         return JSON.toJSONString(map);
     }
 
-    // 实现添加用户的接口
+    // 实现添加人员的接口
     @Override
-    public String addUser(User user) {
+    public String addPerson(Person person) {
 
-        // userDao.addUser(user) 方法会返回添加数据的数目
-        int nums = userDao.addUser(user);
+        // personDao.addPerson(person) 方法会返回添加人员数据的数目
+        int nums = personDao.addPerson(person);
 
         // 如果 num > 0，则表示该数据添加成功，num 为 0，则表示添加数据失败
         String msg = nums > 0 ? "添加成功" : "添加失败";
@@ -70,19 +70,19 @@ public class UserServiceImpl implements UserService {
         // 定义一个map，来保存要返回的数据
         Map<String, Object> map = new HashMap<>();
 
-        // 将 msg 的内容放到map中
+        // 将 msg 的内容放到 map 中
         map.put("msg", msg);
 
         // 调用fastjson的toJSONString()，将map中保存的键值对转换成json字符串
         return JSON.toJSONString(map);
     }
 
-    // 实现更新用户的接口
+    // 实现更新人员的接口
     @Override
-    public String updateUser(User user) {
+    public String updatePerson(Person person) {
 
-        // userDao.updateUser(user) 方法会返回修改数据的数目
-        int nums = userDao.updateUser(user);
+        // userDao.updatePerson(person) 方法会返回修改数据的数目
+        int nums = personDao.updatePerson(person);
 
         // 如果 num > 0，则表示该数据修改成功，num 为 0，则表示修改数据失败
         String msg = nums > 0 ? "修改成功" : "修改失败";
@@ -97,12 +97,12 @@ public class UserServiceImpl implements UserService {
         return JSON.toJSONString(map);
     }
 
-    // 实现删除用户的接口
+    // 实现删除人员的接口
     @Override
-    public String deleteUserById(Integer id) {
+    public String deletePersonById(Integer id) {
 
-        // userDao.deleteUser(user) 方法会返回删除数据的数目
-        int nums = userDao.deleteUser(id);
+        // personDao.deletePerson(id) 方法会返回删除数据的数目
+        int nums = personDao.deletePerson(id);
 
         // 如果 num > 0，则表示该数据删除成功，num 为 0，则表示删除数据失败
         String msg = nums > 0 ? "删除成功" : "删除失败";
@@ -113,14 +113,15 @@ public class UserServiceImpl implements UserService {
         // 将 msg 的内容放到map中
         map.put("msg", msg);
 
-        // 调用fastjson的toJSONString()，将map中保存的键值对转换成json字符串
+        // 调用 fastjson 的 toJSONString()，将 map 中保存的键值对转换成json字符串
         return JSON.toJSONString(map);
     }
 
+    // 删除所有人员
     @Override
     public String deleteAll() {
-        // userDao.deleteAll() 如果返回0，则表示删除成功了
-        int nums = userDao.deleteAll();
+        // personDao.deleteAll() 如果返回0，则表示删除成功了
+        int nums = personDao.deleteAll();
 
         // 如果 num == 0，则表示该数据删除成功，否则视为删除失败
         String msg = nums == 0 ? "删除全部用户成功" : "删除失败";
@@ -131,7 +132,7 @@ public class UserServiceImpl implements UserService {
         // 将 msg 的内容放到map中
         map.put("msg", msg);
 
-        // 调用fastjson的toJSONString()，将map中保存的键值对转换成json字符串
+        // 调用 fastjson 的 toJSONString()，将 map 中保存的键值对转换成json字符串
         return JSON.toJSONString(map);
     }
 }

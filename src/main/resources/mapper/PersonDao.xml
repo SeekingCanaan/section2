@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jhy.section2.dao.PersonDao">
+
+    <!--  添加用户信息  -->
+    <insert id="addPerson">
+        insert into "person" (name, password, score) values (#{name}, #{password}, #{score});
+    </insert>
+
+    <!--  更新用户信息  -->
+    <update id="updatePerson">
+        update "person" set name = #{name}, password = #{password}, score = #{score} where id = #{id};
+    </update>
+
+    <!--  根据id删除用户信息  -->
+    <delete id="deletePerson">
+        delete from "person" where id = #{id};
+    </delete>
+
+    <!--  删除所有用户信息  -->
+    <delete id="deleteAll">
+        truncate table "person" restart identity;
+    </delete>
+
+    <!--  查询所有用户信息  -->
+    <select id="getAllPerson" resultType="com.jhy.section2.pojo.Person">
+        select * from "person";
+    </select>
+
+    <!--  根据id查询用户信息  -->
+    <select id="getPersonById" resultType="com.jhy.section2.pojo.Person">
+        select * from "person" where id = #{id};
+    </select>
+
+</mapper>

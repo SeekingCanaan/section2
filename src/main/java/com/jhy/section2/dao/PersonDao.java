@@ -1,27 +1,27 @@
 package com.jhy.section2.dao;
 
-import com.jhy.section2.pojo.User;
+import com.jhy.section2.pojo.Person;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface UserDao {
+public interface PersonDao {
     // 获取全部用户
-    List<User> getUsers();
+    List<Person> getAllPerson();
 
     // 根据id获取用户
-    User User(@Param("id") Integer id);
+    Person getPersonById(@Param("id") Integer id);
 
     // 新增用户信息
-    int addUser(User user);
+    int addPerson(Person user);
 
     // 修改用户信息
-    int updateUser(User user);
+    int updatePerson(Person user);
 
     // 根据id删除用户信息
-    int deleteUser(@Param("id") Integer id);
+    int deletePerson(@Param("id") Integer id);
 
     // 删除所有用户数据
     int deleteAll();

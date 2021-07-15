@@ -1,25 +1,25 @@
 package com.jhy.section2.service;
 
-import com.jhy.section2.pojo.User;
+import com.jhy.section2.pojo.Person;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface UserService {
+public interface PersonService {
 
     // 获取所有用户
-    String getAllUsers();
+    String getAllPerson();
 
     // 根据id获取用户
-    String getUserById(Integer id);
+    String getPersonById(Integer id);
 
     // 新增用户
-    String addUser(User user);
+    String addPerson(Person user);
 
     // 修改用户
-    String updateUser(User user);
+    String updatePerson(Person user);
 
     // 根据id删除用户
-    String deleteUserById(Integer id);
+    String deletePersonById(Integer id);
 
     // 删除所有用户
     String deleteAll();
