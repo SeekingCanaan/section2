@@ -16,10 +16,6 @@ EXPOSE 5432
 # 创建容器 docker run -it -p (指定宿主机端口):5432 -v /var/lib/postgresql/jhy_PostgreSQL_1.0.0_data:/var/lib/postgresql/data oy/pgsql
 #   docker run -it -p 5433:5432 -v /var/lib/postgresql/jhy_PostgreSQL_1.0.0_data:/var/lib/postgresql/data oy/pgsql
 
-# docker ps 查看运行的容器
-# 输入 pwd
-# 输入 psql postgres(初始化的数据库名)
-
 # 在idea内连接
     # host: 0.0.0.0
     # port: 之前指定宿主机端口
