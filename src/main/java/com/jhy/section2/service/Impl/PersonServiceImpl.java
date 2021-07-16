@@ -59,10 +59,10 @@ public class PersonServiceImpl implements PersonService {
 
     // 实现添加人员的接口
     @Override
-    public String addPerson(Person person) {
+    public String addPerson(Person p) {
 
         // personDao.addPerson(person) 方法会返回添加人员数据的数目
-        int nums = personDao.addPerson(person);
+        int nums = personDao.addPerson(p);
 
         // 如果 num > 0，则表示该数据添加成功，num 为 0，则表示添加数据失败
         String msg = nums > 0 ? "添加成功" : "添加失败";
@@ -79,10 +79,10 @@ public class PersonServiceImpl implements PersonService {
 
     // 实现更新人员的接口
     @Override
-    public String updatePerson(Person person) {
+    public String updatePerson(Person p) {
 
         // userDao.updatePerson(person) 方法会返回修改数据的数目
-        int nums = personDao.updatePerson(person);
+        int nums = personDao.updatePerson(p);
 
         // 如果 num > 0，则表示该数据修改成功，num 为 0，则表示修改数据失败
         String msg = nums > 0 ? "修改成功" : "修改失败";

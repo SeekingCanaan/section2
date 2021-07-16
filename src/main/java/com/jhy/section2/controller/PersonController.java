@@ -24,14 +24,14 @@ public class PersonController {
 
     // 添加人员信息
     @PostMapping("/person")
-    public String addPerson(@RequestBody Person person) {
-        return personService.addPerson(person);
+    public String addPerson(@RequestBody Person p) {
+        return personService.addPerson(p);
     }
 
     // 更新人员信息
     @PutMapping("/person")
-    public String updatePerson(@RequestBody Person person) {
-        return personService.updatePerson(person);
+    public String updatePerson(@RequestBody Person p) {
+        return personService.updatePerson(p);
     }
 
     // 删除指定id人员信息

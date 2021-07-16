@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Person {
 
-    // 用户id
+    // 人员id
     private Integer id;
-    // 用户姓名
+    // 人员姓名
     private String name;
-    // 用户密码
+    // 人员密码
     private String password;
-    // 用户成绩
+    // 人员成绩
     private Integer score;
 
 }

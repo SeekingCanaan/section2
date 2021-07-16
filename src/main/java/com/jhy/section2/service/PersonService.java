@@ -13,10 +13,10 @@ public interface PersonService {
     String getPersonById(Integer id);
 
     // 新增人员数据
-    String addPerson(Person user);
+    String addPerson(Person p);
 
     // 修改人员数据
-    String updatePerson(Person user);
+    String updatePerson(Person p);
 
     // 根据id删除人员数据
     String deletePersonById(Integer id);
