@@ -14,6 +14,7 @@ EXPOSE 5432
 
 # docker images 查看镜像
 # 创建容器 docker run -it -p (指定宿主机端口):5432 -v /var/lib/postgresql/jhy_PostgreSQL_1.0.0_data:/var/lib/postgresql/data oy/pgsql
+#   docker run -it -p 5433:5432 -v /var/lib/postgresql/jhy_PostgreSQL_1.0.0_data:/var/lib/postgresql/data oy/pgsql
 
 # docker ps 查看运行的容器
 # 输入 pwd
