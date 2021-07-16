@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://0.0.0.0:9001/postgres?useSSL=false
+    url: jdbc:postgresql://0.0.0.0:5433/postgres?useSSL=false
     driver-class-name: org.postgresql.Driver
     username: root
     password: root
@@ -8,4 +8,3 @@ spring:
 mybatis:
   type-handlers-package: com.jhy.section2.dao
   mapper-locations: classpath:mapper/*.xml
-
