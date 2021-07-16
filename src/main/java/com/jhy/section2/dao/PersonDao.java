@@ -15,10 +15,10 @@ public interface PersonDao {
     Person getPersonById(@Param("id") Integer id);
 
     // 新增用户信息
-    int addPerson(Person user);
+    int addPerson(Person p);
 
     // 修改用户信息
-    int updatePerson(Person user);
+    int updatePerson(Person p);
 
     // 根据id删除用户信息
     int deletePerson(@Param("id") Integer id);
